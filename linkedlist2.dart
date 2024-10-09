@@ -29,13 +29,13 @@ class LinkedList {
     int colorIndex = 0;
 
     final colors = [
-      '\x1B[31m', // Red
-      '\x1B[32m', // Green
-      '\x1B[33m', // Yellow
-      '\x1B[34m', // Blue
-      '\x1B[35m', // Magenta
-      '\x1B[36m', // Cyan
-      '\x1B[0m',  // Reset
+      '\x1B[31m', 
+      '\x1B[32m', 
+      '\x1B[33m', 
+      '\x1B[34m', 
+      '\x1B[35m', 
+      '\x1B[36m', 
+      '\x1B[0m',  
     ];
 
     while (current != null) {
@@ -48,7 +48,7 @@ class LinkedList {
         count++;
       }
 
-      // Print the line in the chosen color
+      
       stdout.write(colors[colorIndex % colors.length]);
       if (leftToRight) {
         print(line);
@@ -56,12 +56,12 @@ class LinkedList {
         print(line.split('').reversed.join());
       }
 
-      // Alternate direction and increment color index
+      
       leftToRight = !leftToRight;
       colorIndex++;
     }
     
-    // Reset color at the end
+    
     stdout.write(colors.last);
   }
 }
@@ -70,12 +70,12 @@ void main() {
   final linkedList = LinkedList();
   final string = 'NAME';
 
-  // Create a repeating linked list
-  for (int i = 0; i < 50; i++) { // Adjust for desired length
+  
+  for (int i = 0; i < 50; i++) { 
     linkedList.append(string[i % string.length]);
   }
 
-  // Print the linked list
+  
   final terminalWidth = stdout.terminalColumns;
   linkedList.printList(terminalWidth);
 }
